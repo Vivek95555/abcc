@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <!-- Include any necessary CSS files here -->
+    
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'upload_app/style.css' %}">
+</head>
+<body>
+    <h1>Upload Your File</h1>
+    
+    <!-- Form for file upload -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload File</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p> <!-- Display a success message after upload -->
+    {% endif %}
+
+    <!-- Include any necessary JS files here -->
+    
+    <script src="{% static 'upload_app/script.js' %}"></script>
+</body>
+</html>
